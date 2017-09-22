@@ -13,8 +13,18 @@ intents:
     action: "stop_playing"
   - intent: ResumeMusicCreativeWork
     action: "resume_playing"
+  - intent: ActivatePlaybackMode
+    action: "stop_playing"
   - intent: ResumeIntent
     action: "resume_playing"
+  - intent: NextIntent
+    action: "next_track"
+  - intent: PreviousIntent
+    action: "previous_track"
+  - intent: IncreaseVolume
+    action: "increase_volume"
+  - intent: DecreaseVolume
+    action: "decrease_volume"
   - intent: NextIntent
     action: "next_track"
   - intent: SearchMusicRecordingAlbum

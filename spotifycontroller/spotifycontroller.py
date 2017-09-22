@@ -45,6 +45,13 @@ class SpotifyController:
 
         return token['access_token']
 
+    def __adjust_volume(self, volume_change):
+        sp = spotipy.Spotify(auth=self.__get_access_token())
+        device = sp.current_playback()['device']
+        volume = device['volume_percent']
+        new_volume = min(100, max(0, volume + volume_change))
+        sp.volume(new_volume)
+
 
     def stop_playing(self):
         """ Turn on something. """
@@ -60,6 +67,17 @@ class SpotifyController:
         """ Turn of something. """
         sp = spotipy.Spotify(auth=self.__get_access_token())
         sp.next_track()
+
+    def previous_track(self):
+        """ Turn of something. """
+        sp = spotipy.Spotify(auth=self.__get_access_token())
+        sp.previous_track()
+
+    def decrease_volume(self):
+        self.__adjust_volume(-7)
+
+    def increase_volume(self):
+        self.__adjust_volume(7)
 
     def give_current_track_info(self):
         sp = spotipy.Spotify(auth=self.__get_access_token())
