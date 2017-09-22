@@ -5,5 +5,20 @@ parameters: []
 intents:
   - intent: DeactivatePlaybackMode
     action: "stop_playing"
+  - intent: StopIntent
+    action: "stop_playing"
+  - intent: PauseIntent
+    action: "stop_playing"
+  - intent: SuspendMusicCreativeWork
+    action: "stop_playing"
   - intent: ResumeMusicCreativeWork
     action: "resume_playing"
+  - intent: ResumeIntent
+    action: "resume_playing"
+  - intent: NextIntent
+    action: "next_track"
+  - intent: SearchMusicRecordingAlbum
+    action: >
+      {%
+      print intent.musicRecordingSelect
+      %}

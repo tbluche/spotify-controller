@@ -49,11 +49,14 @@ class SpotifyController:
     def stop_playing(self):
         """ Turn on something. """
         sp = spotipy.Spotify(auth=self.__get_access_token())
-        print("Stop the player")
         sp.pause_playback()
 
     def resume_playing(self):
         """ Turn of something. """
         sp = spotipy.Spotify(auth=self.__get_access_token())
-        print("Resume playing")
         sp.start_playback()
+
+    def next_track(self):
+        """ Turn of something. """
+        sp = spotipy.Spotify(auth=self.__get_access_token())
+        sp.next_track()
