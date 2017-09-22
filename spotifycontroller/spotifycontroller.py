@@ -3,7 +3,7 @@
 import os
 import sys
 import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
+from spotipy.oauth2 import SpotifyOAuth
 
 class SpotifyController:
     """ Skeleton Snips skill. """
@@ -22,7 +22,7 @@ class SpotifyController:
         scope = 'user-modify-playback-state user-read-playback-state'
         auth = SpotifyOAuth(
             self.client_id, self.secret_id, self.redirect_url,
-            scope=scope, cache_path='/home/pi/.cache-snipscontroller'
+            scope=scope, cache_path='/home/pi/.cache--snipscontroller'
         )
         token = auth.get_cached_token()
         if token is None:

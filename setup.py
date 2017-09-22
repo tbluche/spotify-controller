@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='spotifycontroller',
-    version='0.0.3',
+    version='0.0.4',
     description='My skill for Snips',
     url='https://github.com/tbluche/spotify-controller',
     download_url='',
