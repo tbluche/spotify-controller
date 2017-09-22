@@ -8,12 +8,12 @@ from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
 class SpotifyController:
     """ Skeleton Snips skill. """
 
-    def __init__(self, client_id, secret_id, redirect_url, tts_service=None):
+    def __init__(self, client_id, secret_id, redirect_uri, tts_service=None):
         """
         """
         self.client_id = client_id
         self.secret_id = secret_id
-        self.redirect_url = redirect_url
+        self.redirect_url = redirect_uri
         self.tts = tts_service
         # self.hostname = hostname
         # self.light_ids = light_ids
@@ -22,7 +22,7 @@ class SpotifyController:
         scope = 'user-modify-playback-state user-read-playback-state'
         auth = SpotifyOAuth(
             self.client_id, self.secret_id, self.redirect_url,
-            scope=scope, cache_path='.cache'
+            scope=scope, cache_path='/home/pi/.cache'
         )
         token = auth.get_cached_token()
         if token is None:
