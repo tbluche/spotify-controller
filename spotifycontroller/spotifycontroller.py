@@ -60,3 +60,11 @@ class SpotifyController:
         """ Turn of something. """
         sp = spotipy.Spotify(auth=self.__get_access_token())
         sp.next_track()
+
+    def give_current_track_info(self):
+        sp = spotipy.Spotify(auth=self.__get_access_token())
+        current_playback = sp.current_playback()
+        if current_playback['item']:
+            artist = current_playback['item']['artists']['name'].encode('utf-8')
+            title = current_playback['item']['name'].encode('utf-8')
+            self.tts.speak("This is {} by {}".format(title, artist))

@@ -20,5 +20,6 @@ intents:
   - intent: SearchMusicRecordingAlbum
     action: >
       {%
-      print intent.musicRecordingSelect
+      if intent.musicRecordingSelect == "this":
+        skill.give_current_track_info()
       %}
