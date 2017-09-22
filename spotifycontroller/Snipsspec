@@ -13,7 +13,11 @@ intents:
     action: "stop_playing"
   - intent: ResumeMusicCreativeWork
     action: "resume_playing"
+  - intent: PlayMusicCreativeWork
+    action: "resume_playing"
   - intent: ActivatePlaybackMode
+    action: "resume_playing"
+  - intent: StartOverIntent
     action: "stop_playing"
   - intent: ResumeIntent
     action: "resume_playing"
@@ -32,4 +36,10 @@ intents:
       {%
       if intent.musicRecordingSelect == "this":
         skill.give_current_track_info()
+      %}
+  - intent: PlayMusicCreativeWork
+    action: >
+      {%
+      if intent.musicCreativeWorkSelect == "next":
+        skill.next_track()
       %}

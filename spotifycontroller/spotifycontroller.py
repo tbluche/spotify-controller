@@ -74,10 +74,10 @@ class SpotifyController:
         sp.previous_track()
 
     def decrease_volume(self):
-        self.__adjust_volume(-7)
+        self.__adjust_volume(-12)
 
     def increase_volume(self):
-        self.__adjust_volume(7)
+        self.__adjust_volume(12)
 
     def give_current_track_info(self):
         sp = spotipy.Spotify(auth=self.__get_access_token())
