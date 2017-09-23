@@ -83,6 +83,6 @@ class SpotifyController:
         sp = spotipy.Spotify(auth=self.__get_access_token())
         current_playback = sp.current_playback()
         if current_playback['item']:
-            artist = current_playback['item']['artists'][0]['name'].encode('utf-8')
-            title = current_playback['item']['name'].encode('utf-8')
-            self.tts.speak("This is {} by {}".format(title, artist))
+            artist = current_playback['item']['artists'][0]['name'] #.encode('utf-8')
+            title = current_playback['item']['name']
+            self.tts.speak(u"This is {} by {}".format(title, artist))

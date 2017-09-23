@@ -43,3 +43,27 @@ intents:
       if intent.musicCreativeWorkSelect == "next":
         skill.next_track()
       %}
+  - intent: user_SkyjZmpfW__SpotifyRecommendationIntent:
+    action: >
+      {%
+      kwargs = {}
+      for feature in ['acousticness', 'popularity', 'valence', 'danceability', 'loudness', 'energy', 'liveness', 'speechiness', 'instrumentalness']:
+          val = getattr(intent, feature, None)
+          if val is not None:
+              if val.startswith("very"):
+                  kwargs['min-%s'%feature] = 0.8
+              elif val.endswith("at all"):
+                  kwargs['max-%s'%feature] = 0.2
+              elif val.startswith("not"):
+                  kwargs['max-%s'%feature] = 0.4
+                  kwargs['min-%s'%feature] = 0.2
+              else:
+                  kwargs['max-%s'%feature] = 0.8
+                  kwargs['min-%s'%feature] = 0.6
+      if intent.numberOfTracks is not None:
+          print intent.numberOfTracks
+      if intent.genre is not None:
+          print intent.genre
+      print kwargs
+
+      %}
