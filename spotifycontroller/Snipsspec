@@ -43,7 +43,7 @@ intents:
       if intent.musicCreativeWorkSelect == "next":
         skill.next_track()
       %}
-  - intent: user_SkyjZmpfW__SpotifyRecommendationIntent:
+  - intent: user_SkyjZmpfW__SpotifyRecommendationIntent
     action: >
       {%
       kwargs = {}
